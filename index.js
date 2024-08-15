@@ -5,7 +5,6 @@ const xlsx = require('xlsx');
 const fs = require('fs');
 const session = require('express-session');
 const dotenv = require('dotenv');
-const { Readable } = require('stream');
 
 dotenv.config();
 const secret_key = process.env.SECRET_KEY;
@@ -64,9 +63,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
         req.session.uploadedFile = req.file.filename;
 
+        setTimeout(() => {
+            fs.unlink(filePath, (err) => {});
+        }, 5 * 60 * 1000);
+
         res.json({ headers });
     } catch (error) {
-        console.error(error);
         res.status(500).json({ error: 'Server error during file upload' });
     }
 });
@@ -103,7 +105,9 @@ app.post('/filter', (req, res) => {
 
         const buffer = xlsx.write(newWorkbook, { bookType: 'xlsx', type: 'buffer' });
 
-        res.setHeader('Content-Disposition', `attachment; filename=${fileName}.xlsx`);
+        const encodedFileName = encodeURIComponent(fileName).replace(/'/g, '%27');
+        
+        res.setHeader('Content-Disposition', `attachment; filename*=UTF-8''${encodedFileName}.xlsx`);
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         res.send(buffer);
 
@@ -113,7 +117,6 @@ app.post('/filter', (req, res) => {
             }
         });
     } catch (error) {
-        console.error(error);
         res.status(500).json({ error: 'Server error during file filtering' });
     }
 });
@@ -124,5 +127,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`server on`);
 });

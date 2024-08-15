@@ -47,7 +47,7 @@ document.getElementById('uploadForm').addEventListener('submit', function (event
         })
         .catch(error => {
             hideLoading();
-            showError('예상치 못한 오류가 발생하였습니다.');
+            showError('예상치 못한 오류 또는 시간 초과입니다. 다시 한번 시도해 주세요.');
             console.error('Error:', error);
         });
 });
@@ -111,12 +111,11 @@ document.getElementById('filterForm').addEventListener('submit', function (event
 });
 
 document.getElementById('helpButton').addEventListener('click', function (event) {
-    event.stopPropagation(); // Prevent the click event from propagating to document
+    event.stopPropagation();
     const popup = document.getElementById('helpPopup');
     popup.classList.toggle('hidden');
 });
 
-// Close the help popup when clicking outside of it
 document.addEventListener('click', function (event) {
     const popup = document.getElementById('helpPopup');
     const helpButton = document.getElementById('helpButton');
