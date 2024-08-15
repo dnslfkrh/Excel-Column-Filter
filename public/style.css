@@ -1,0 +1,38 @@
+.loading {
+    display: none;
+    font-size: 1.2em;
+    color: #007bff;
+}
+  
+.error {
+    color: red;
+}
+  
+.hidden {
+    display: none;
+}
+
+#helpPopup {
+    position: absolute;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+
+#helpButton {
+    background: #FFA500;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
