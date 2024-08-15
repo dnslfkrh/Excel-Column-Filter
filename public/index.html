@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Excel Filter</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <h2>엑셀 파일 업로드 후 원하는 열을 추출하세요.</h2>
-  
+
   <form id="uploadForm" enctype="multipart/form-data">
     <input type="file" name="file" accept=".xlsx" required aria-label="Upload Excel File" />
     <button type="submit">업로드</button>
     <button type="button" id="helpButton" aria-label="Help">?</button>
   </form>
-  
+
   <div id="helpPopup" class="hidden">
     <p>첫 번째 행이 데이터의 칼럼(열)이어야 합니다.</p>
   </div>
-  
+
   <div id="loading" class="loading">Processing...</div>
   <div id="error" class="error hidden"></div>
-  
+
   <div id="filterOptions" class="hidden">
     <h2>추출하고 싶은 열을 선택하세요.</h2>
     <form id="filterForm">
@@ -33,4 +35,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

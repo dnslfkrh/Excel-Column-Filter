@@ -21,7 +21,7 @@ function hideLoading() {
 document.getElementById('uploadForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    if(!confirm('업로드 방법을 확인하셨습니까?')) {
+    if (!confirm('업로드 방법을 확인하셨습니까?')) {
         return;
     }
 
@@ -55,7 +55,7 @@ document.getElementById('uploadForm').addEventListener('submit', function (event
 document.getElementById('filterForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    if(!confirm('엑셀 파일을 추출하시겠습니까?')) {
+    if (!confirm('엑셀 파일을 추출하시겠습니까?')) {
         return;
     }
 
@@ -85,29 +85,29 @@ document.getElementById('filterForm').addEventListener('submit', function (event
         },
         body: JSON.stringify({ columns: selectedColumns, fileName })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok.');
-        }
-        return response.blob();
-    })
-    .then(blob => {
-        hideLoading();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fileName + '.xlsx';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        window.URL.revokeObjectURL(url);
-        window.location.reload();
-    })
-    .catch(error => {
-        hideLoading();
-        showError('예상치 못한 오류가 발생하였습니다.');
-        console.error('Error:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            hideLoading();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName + '.xlsx';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+            window.location.reload();
+        })
+        .catch(error => {
+            hideLoading();
+            showError('예상치 못한 오류가 발생하였습니다.');
+            console.error('Error:', error);
+        });
 });
 
 document.getElementById('helpButton').addEventListener('click', function (event) {

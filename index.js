@@ -64,7 +64,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
         req.session.uploadedFile = req.file.filename;
 
         setTimeout(() => {
-            fs.unlink(filePath, (err) => {});
+            fs.unlink(filePath, (err) => { });
         }, 5 * 60 * 1000);
 
         res.json({ headers });
@@ -106,7 +106,7 @@ app.post('/filter', (req, res) => {
         const buffer = xlsx.write(newWorkbook, { bookType: 'xlsx', type: 'buffer' });
 
         const encodedFileName = encodeURIComponent(fileName).replace(/'/g, '%27');
-        
+
         res.setHeader('Content-Disposition', `attachment; filename*=UTF-8''${encodedFileName}.xlsx`);
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         res.send(buffer);
