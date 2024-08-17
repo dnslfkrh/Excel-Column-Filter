@@ -2,21 +2,21 @@ function showError(message) {
     const errorDiv = document.getElementById('error');
     errorDiv.textContent = message;
     errorDiv.classList.remove('hidden');
-}
+};
 
 function hideError() {
     const errorDiv = document.getElementById('error');
     errorDiv.textContent = '';
     errorDiv.classList.add('hidden');
-}
+};
 
 function showLoading() {
     document.getElementById('loading').classList.remove('hidden');
-}
+};
 
 function hideLoading() {
     document.getElementById('loading').classList.add('hidden');
-}
+};
 
 document.getElementById('uploadForm').addEventListener('submit', function (event) {
     event.preventDefault();
