@@ -2,7 +2,7 @@
 #### 엑셀 파일에서 원하는 열만 추출할 수 있는 웹 프로그램입니다.
 
 
-#### 프로젝트 url:
+#### - 프로젝트 url:
 ```
 https://excel-column-filter.store/
 ```
@@ -11,12 +11,12 @@ https://excel-column-filter.store/
 ```
 
 
-#### 시연 영상:
+#### - 시연 영상:
 ```
 https://youtu.be/H11DkxhnHfs?si=9DTXuBRj_Upmis-c
 ```
 
-#### 프로젝트 테스트
+#### - 프로젝트 테스트
 ```
 $ npm install
 ```
