@@ -12,6 +12,8 @@ const secret_key = process.env.SECRET_KEY;
 const app = express();
 const port = 8080;
 
+
+// config
 app.use(session({
     secret: `${secret_key}`,
     resave: false,
@@ -23,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+// config
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -44,11 +47,14 @@ const upload = multer({
     }
 });
 
+
+// route
 app.get('/', (req, res) => {
     res.render('index');
 });
 
 app.post('/upload', upload.single('file'), (req, res) => {
+    // controller
     try {
         if (!req.file) {
             return res.status(400).json({ error: 'No file uploaded' });
