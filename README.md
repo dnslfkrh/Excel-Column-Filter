@@ -16,7 +16,7 @@ https://excel-column-filter.store/
 https://youtu.be/H11DkxhnHfs?si=9DTXuBRj_Upmis-c
 ```
 
-#### - 프로젝트 테스트
+#### - 프로젝트 테스트:
 ```
 $ npm install
 ```
