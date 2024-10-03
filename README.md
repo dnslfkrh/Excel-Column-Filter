@@ -2,21 +2,18 @@
 #### 엑셀 파일에서 원하는 열만 추출할 수 있는 웹 프로그램입니다.
 
 
-#### - 프로젝트 url:
+#### 배포 기간
 ```
-https://excel-column-filter.store/
-```
-```
-2024년 8월 16일 ~ 2025년 8월 15일 배포 예정
+2024년 8월 16일 ~ 10월 4일 (https://excel-column-filter.store)
 ```
 
 
-#### - 시연 영상:
+#### 시연 영상
 ```
 https://youtu.be/H11DkxhnHfs?si=9DTXuBRj_Upmis-c
 ```
 
-#### - 프로젝트 테스트:
+#### 프로젝트 테스트
 ```
 $ npm install
 ```
